@@ -1,21 +1,19 @@
 body {
-
 	color: #00FF22;
 	background-color: #000000;
 	font-family: Courier;
-	font-size: 1em;
+	font-size: 1.5em;
 	text-align: center;
-	
 }
 
 ul {
     	margin-left:auto; 
     	margin-right:auto;
-	text-align: left;
-	display:-moz-inline-stack;
-	display:inline-block;
-	zoom:1;
-	*display:inline;
+	    text-align: left;
+	    display:-moz-inline-stack;
+	    display:inline-block;
+	    zoom:1;
+	    *display:inline;
 }
 
 a {
@@ -24,25 +22,64 @@ a {
 }
 
 table {
-
-	margin-top: 2em;
-	margin-left:auto; 
+	    margin-top: 2em;
+	    margin-left:auto;
     	margin-right:auto;
-	border: 1px dashed green;
-
+	    border: 1px dashed green;
 }
 
 th, td {
-
-	padding: 0.5em;
-	border: 1px dashed green;
-	vertical-align:top;
-	text-align: left;
-
+	    padding: 0.5em;
+	    border: 1px dashed #00FF22;
+	    vertical-align:top;
+	    text-align: left;
 }
 
 #paddedTop {
+	padding-top: 2em;
+}
 
-	paddin-top: 2em;
+.written {
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 5%;
+}
 
+.code {
+    text-align: left;
+    color: black;
+    padding-left: 7%;
+    padding-right: 7%;
+    font-size: 1em;
+}
+
+.code span {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background-color: #d3d3d3;
+    border: 1px dashed gray;
+}
+
+.variable {
+    color: red;
+}
+
+#wrapper {
+
+}
+
+#header {
+
+}
+
+#content {
+
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    border: 3px solid #00FF22;
 }

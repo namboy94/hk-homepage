@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--Created 18.08.2015-->
+
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="../style.css" />
+    <title>OpenSSL Encryption</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+    </div>
+    <div id="content">
+
+        <h1>Hermann's Tech Lab</h1>
+        <h3>Encrypting files with OpenSSL using public keys</h3>
+        <p class="written">To encrypt files using OpenSSl, you'll have to first create a public/private key set.
+            To do this, enter the following commands in a linux terminal:</p>
+        <p class="code"><span>ssh-keygen -t rsa</span></p>
+        <p class="written">and set it up to your liking. Ideally, you would use the default file name for the key files.
+            Then, navigate to the .ssh directory using</p>
+        <p class="code"><span>cd .ssh</p>
+        <p class="written">Afterwards, generate .pem keys to be used with OpenSSL. To do this, enter the following commands:</p>
+        <p class="code"><span>openssl rsa -in id_rsa -outform pem > id_rsa.pem</span><br>
+            <span>openssl rsa -in id_rsa -pubout -outform pem > id_rsa.pub.pem</span></p>
+        <p class="written">Now, we will generate a random 256 bit key:</p>
+        <p class="code"><span>openssl rand -base64 32 > key.bin</span><br>
+            <span>openssl rsautl -encrypt -inkey id_rsa.pub.pem -pubin -in key.bin -out key.bin.enc</span></p>
+        <p class="written">Now we're ready to encrypt our files. To do this, enter the following commands in the terminal while being
+            in the .ssh directory:</p>
+        <p class="code"><span> openssl enc -aes-256-cbc -salt -in <span class="variable">Input</span> -out <span class="variable">Output.enc</span> -pass file:key.bin</span></p>
+        <p class="written">Output.enc is your encrypted file. The Encryption is now done!<br>
+            To decrypt the file again, you'll need access to your original keys, so don't lose them!<br>
+            The command to decrypt the file is:</p>
+        <p class="code"><span>openssl enc -d -aes-256-cbc -in <span class="variable">Input.enc</span> -out <span class="variable">Output</span> -pass file:key.bin</span></p>
+        <p class="written">For faster en- and decrypting you can use the following two bash scripts once you did the original setup.</p>
+        <ul>
+            <li>
+                <a href="../resources/bash/encrypt.sh">Encrypt</a>
+            </li>
+            <li>
+                <a href="../resources/bash/decrypt.sh">Decrypt</a>
+            </li>
+        </ul>
+    </div>
+    <div id="footer">
+        <a href="../index.html">Home</a>
+    </div>
+</div>
+</body>
+</html>
