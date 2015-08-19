@@ -21,6 +21,10 @@ a {
     	text-decoration: none;
 }
 
+.link {
+    color: white;
+}
+
 table {
 	    margin-top: 2em;
 	    margin-left:auto;
@@ -48,16 +52,16 @@ th, td {
 .code {
     text-align: left;
     color: black;
-    padding-left: 7%;
-    padding-right: 7%;
-    font-size: 1em;
-}
-
-.code span {
     padding-left: 0.5em;
     padding-right: 0.5em;
     background-color: #d3d3d3;
     border: 1px dashed gray;
+    font-size: 1em;
+    white-space: pre-wrap;
+}
+
+.code:after {
+    content: "\A";
 }
 
 .variable {
@@ -70,16 +74,51 @@ th, td {
 
 #header {
 
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border: 3px solid #00FF22;
+    background-color: #000000;
 }
 
 #content {
 
+	margin-left: auto;
+	margin-right: auto;
+    border: 1px solid #00FF22;
+    border-top: none;
+	width: 70%;
+	display: block;
+
 }
 
 #footer {
+    margin-top: 33px;
+}
+
+#next {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 100px;
+    width: 150px;
+    height: 30px;
+    border: 3px solid #00FF22;
+}
+
+#previous {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 30px;
+    border: 3px solid #00FF22;
+}
+
+#home {
+    bottom: 0;
+    margin: 0 auto;
+    width: 150px;
+    height: 30px;
     border: 3px solid #00FF22;
 }
