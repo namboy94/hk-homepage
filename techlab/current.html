@@ -4,46 +4,40 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="../style.css" />
-    <title>Nvidia Linux Drivers</title>
+    <title>Rsync</title>
 </head>
 <body>
 <div id="wrapper">
     <div id="header">
         <h1>Hermann's Tech Lab</h1>
-        <h3>Installing proprietary Nvidia drivers on Linux Mint 17.2</h3>
+        <h3>Using Rsync for backing up or transferring files.</h3>
     </div>
     <div id="content">
-        <p class="written">If you have a graphics card and run Linux, you'll want to use the proprietary
-            drivers instead of the community drivers for increased performance. While the Nouveau driver is fine
-            for everyday tasks, anything more demanding essentially requires the proprietary Nvidia driver.
-            I've also had issues using a monitor via DisplayPort without the proprietary driver.<br><br>
-            This tutorial assumes a freshly installed Linux Mint 17.2 system. The methods described here may (or in fact should)
-            work in other situations, but it's not guaranteed.<br><br>
-            First off, download the appropriate driver for your specific GPU model from
-            <a href="http://www.nvidia.com/Download/index.aspx?lang=en-us" class="link">Nvidia's website</a> and save the
-            file to ~/Downloads .<br><br>
-            Before we do anything, we'll want to get our system up to date. To do this, enter the following commands in the
-            terminal:<br><br>
-            <span class="code">sudo apt-get update</span><br>
-            <span class="code">sudo apt-get dist-upgrade</span><br>
-            <span class="code">sudo reboot</span><br>
-            Afterwards, we'll blacklist the Nouveau driver:<br><br>
-            <span class="code">echo "blacklist nouveau" | sudo tee -a /etc/modprobe.d/blacklist.conf</span><br>
-            <span class="code">sudo reboot</span><br>
-            After the reboot, do not log in! Enter the key combination<br><br>
-            <span class="code">CTRL-ALT-F1</span><br>
-            Enter the following commands after logging in using the tty1 terminal:<br><br>
-            <span class="code">sudo service mdm stop</span><br>
-            <span class="code">cd Downloads</span><br>
-            <span class="code">sudo apt-get purge nvidia*</span><br>
-            <span class="code">chmod +x <span class="variable">Driver.run</span></span><br>
-            <span class="code">sudo sh <span class="variable">Driver.run</span></span><br>
-            <span class="code">sudo apt-get install nvidia-prime</span><br>
-            <span class="code">sudo reboot</span><br>
-            The driver should now have successfully installed, to verify this, enter<br><br>
-            <span class="code">inxi -G</span><br>
-            in a terminal.<br><br>
-            Enjoy your Nvidia driver!
+        <p class="written">Rsync is a very useful program to backup files or even just for transferring them.
+            It verifies every operation using checksums, making sure that no data loss occurs during the data transfer.
+            This makes it superior to operations like mv.<br><br>
+            The basic syntax of an rsync command is as follows:<br><br>
+            <span class="code">rsync <span class="variable">options</span> <span class="variable">source</span> <span class="variable">destination</span></span><br>
+            The most important options are:</p>
+        <ul class="ul_in_text">
+            <li>-a    Archive Mode, should normally be used</li>
+            <li>-v    Verbose Mode, prints the perfrmed actions to the terminal</li>
+            <li>-n    Dry Run Mode, for testing. If this option is enabled, no changes will be made</li>
+            <li>--delete-after    Deleted files that don't exist in the source directory after the rsync command itself</li>
+        </ul>
+        <p class="written">Using rsync with a remote server, for instance via SSH, you'll need the following syntax:<br><br>
+            <span class="code"><span class="variable">user</span>@<span class="variable">server</span>:<span class="variable">path</span></span><br><br>
+            Use case Examples:<br><br>
+            Copying files from one local drive to another:<br>
+            <span class="code">rsync -av /mnt/disk1/folder/ /mnt/disk2/folder</span><br>
+            Backing up the Home drive to a NAS via SSH:<br>
+            <span class="code">rsync -av /home/user user@server:/mnt/disk/backups</span><br>
+            List files missing from your PC that are available on a remote server:<br>
+            <span class="code">rsync -anv user@server:/mnt/disk/secrets/ /home/user/secrets</span><br>
+            Synchronize a folder on a server with a local folder, making the remote folder the same as the local folder:<br>
+            <span class="code">rsync -anv --delete-after /home/user/stuff/ user@server:/mnt/disk/stuff</span><br><br>
+            Note that sometimes an "/" is appended to the end of a directory. If this is the case, the content of the directory is synced.
+            If the "/" is ommited, The folder itself is synced.
         </p>
     </div>
     <div id="footer">

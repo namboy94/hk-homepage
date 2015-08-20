@@ -6,7 +6,7 @@ body {
 	text-align: center;
 }
 
-ul {
+.ul_center {
     	margin-left:auto; 
     	margin-right:auto;
 	    text-align: left;
@@ -14,6 +14,12 @@ ul {
 	    display:inline-block;
 	    zoom:1;
 	    *display:inline;
+}
+
+.ul_in_text {
+    margin-left: 7%;
+    text-align: left;
+    margin-right: 7%;
 }
 
 a {
