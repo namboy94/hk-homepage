@@ -16,17 +16,44 @@
         <p class="written">Legacy DOS applications can be a nightmare to run, especially so if they are dependent on
             the frequency of the CPU. These programs will sometimes experience issues like "divided by zero"-errors
             on modern hardware, because the CPU frequency is too high for the program to handle correctly.<br><br>
-            Turbocash, a DOS-based accounting program is one of these. There are several workarounds required to gain the
-            full functionality of the software on modern operating systems and hardware.<br><br>
+            Turbocash, a DOS-based accounting program is one of these. There are several workarounds required to gain
+            the full functionality of the software on modern operating systems and hardware.<br><br>
             What you'll need:</p>
-        <ul>
+        <ul class="ul_in_text">
             <li>An installation disk for Windows 98 SE or an ISO of it.</li>
             <li>A valid Windows 98 SE license key</li>
             <li><a href="http://home.arcor.de/h-a-l-9000/megabuild.html">DOSBox Megabuild</a></li>
-            <li><a href="https://www.virtualbox.org/">Virtualbox</a></li>
-            <li>A copy of Turbocash/the program required to run</li>
+            <li><a href="https://www.virtualbox.org/">Oracle Virtualbox</a></li>
+            <li>A copy of Turbocash</li>
         </ul>
-        <p class="written">To start
+        <p class="written">To start, set up a new Windows 98 Virtual Machine in Oracle Virtualbox using the Windows 98
+            ISO. If you only have an installation CD, create an ISO of it beforehand, or use Virtualbox's built-in
+            functionality to use your CD Drive.<br>
+            Use the following settings for the Virtual machine:<br>
+        </p>
+        <ul class="ul_in_text">
+            <li>265MB RAM</li>
+            <li>2GB HDD Space (Use VHD)</li>
+            <li>PIIX3 Chipset</li>
+            <li>IO-APIC activated</li>
+            <li>128M Graphics RAM</li>
+            <li>2D and 3D accelearation activated</li>
+            <li>Bridged Network</li>
+        </ul>
+        <p class="written">Now, we'll start installing Windows 98 SE on the virtual machine. Just use the default
+            settings for everything and enable large disk support.<br>
+            To enable printing over the network, which will be necessary to print statements,
+            you will have to do the following steps:<br>
+        </p>
+        <ol class="ul_in_text">
+            <li>Open the Control Panel</li>
+            <li>Go to Network Settings</li>
+            <li>Add a new service</li>
+            <li>Select "File and Printer sharing for Microsoft networks"</li>
+            <li>Confirm the selections</li>
+            <li>Restart the Virtual Machine</li>
+        </ol>
+        <p class="written">
         </p>
     </div>
     <div id="footer">
