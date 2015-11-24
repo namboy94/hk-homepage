@@ -100,6 +100,29 @@ th, td {
     margin-top: 30px;
 }
 
+#basic_wrapper {
+}
+
+#basic_header {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #000000;
+}
+
+#basic_content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: block;
+
+}
+
+#basic_footer {
+    margin-top: 30px;
+}
+
 #right_down_0 {
     position: fixed;
     padding-top: 10px;
