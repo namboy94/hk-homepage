@@ -1,0 +1,22 @@
+stages:
+  - setup
+  - upload
+  - cleanup
+
+clone:
+  stage: setup
+  script:
+    - cd
+    - git clone http://gitlab.namibsun.net/namboy94/homepage.git
+
+upload_to_pypi:
+  stage: upload
+  script:
+    - cd
+    - rsync -avP --delete-after homepage/ www.krumreyh.de@ssh.strato.de:~/Homepage
+
+delete_clone:
+  stage: cleanup
+  script:
+    - cd
+    - rm -rf homepage
