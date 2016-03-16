@@ -9,7 +9,7 @@ clone:
     - cd
     - git clone http://gitlab.namibsun.net/namboy94/homepage.git
 
-upload_to_pypi:
+upload_to_strato:
   stage: upload
   script:
     - cd
