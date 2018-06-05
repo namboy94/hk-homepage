@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "updating website"
-rsync -avP /home/hermann/IDEs/Projects/WebStorm/Homepage/ www.krumreyh.de@ssh.strato.de:~/Homepage
