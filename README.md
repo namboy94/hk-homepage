@@ -1,8 +1,10 @@
-# Homepage [![pipeline status](https://gitlab.namibsun.net/namboy94/homepage/badges/master/pipeline.svg)](https://gitlab.namibsun.net/namboy94/homepage/commits/master)
+# Homepage
+
+[![pipeline status](https://gitlab.namibsun.net/namboy94/homepage/badges/master/pipeline.svg)](https://gitlab.namibsun.net/namboy94/homepage/commits/master)
 
 ![Logo](resources/logo/logo-readme.png)
 
-This is my personal homepage. It's currently in development limbo.
+This is my personal homepage.
 
 ## Further Information
 

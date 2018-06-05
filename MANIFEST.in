@@ -1,0 +1,3 @@
+graft hk_homepage/templates
+graft hk_homepage/static
+include version
